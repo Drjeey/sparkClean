@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | SparkClean Pro</title>
+  <meta name="description" content="Get in touch with SparkClean Pro. Call, WhatsApp, or send a message. Fast response guaranteed." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    .contact-channels {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 4rem;
+    }
+    @media (max-width: 768px) { .contact-channels { grid-template-columns: 1fr; } }
+    .channel-card {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border-radius: var(--radius-xl);
+      border: 1.5px solid var(--border);
+      transition: all var(--transition);
+      text-decoration: none;
+      display: block;
+    }
+    .channel-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .channel-card.primary { background: var(--navy); border-color: var(--navy); }
+    .channel-card.whatsapp { background: #128C7E; border-color: #128C7E; }
+    .channel-card.email { background: var(--white); }
+    .channel-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+    .channel-label {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+    .channel-card.primary .channel-label,
+    .channel-card.whatsapp .channel-label { color: var(--white); }
+    .channel-card.email .channel-label { color: var(--navy); }
+    .channel-value { font-size: 0.9rem; }
+    .channel-card.primary .channel-value,
+    .channel-card.whatsapp .channel-value { color: rgba(255,255,255,0.7); }
+    .channel-card.email .channel-value { color: var(--text-muted); }
+    .hours-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row .day { color: var(--text-secondary); font-weight: 500; }
+    .hours-row .time { font-weight: 600; color: var(--navy); }
+    .hours-row .time.closed { color: var(--gray-400); }
+    .map-placeholder {
+      width: 100%;
+      height: 280px;
+      background: linear-gradient(135deg, #0F2D5A 0%, #1A56DB 100%);
+      border-radius: var(--radius-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1.5rem;
+      border: 1.5px solid var(--border);
+      color: rgba(255,255,255,0.6);
+      font-size: 0.9rem;
+      gap: 0.5rem;
+    }
+    .map-placeholder span { font-size: 2rem; }
+    .service-area-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .area-tag {
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.3rem 0.8rem;
+      background: var(--blue-pale);
+      color: var(--blue);
+      border-radius: 100px;
+      border: 1px solid rgba(26,86,219,0.15);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header scrolled" id="site-header">
+    <div class="header-inner container">
+      <a href="index.html" class="logo"><span class="logo-icon">✦</span><span class="logo-text">SparkClean<span class="logo-accent">Pro</span></span></a>
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="booking.html" class="nav-link">Booking</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:+10000000000" class="header-phone">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (000) 000-0000
+        </a>
+        <a href="booking.html" class="btn btn-primary btn-sm">Book Now</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="page-hero-tag">Get In Touch</span>
+      <h1>Contact &<br/>Location</h1>
+      <p>Multiple ways to reach us. We respond fast — usually within the hour during business hours.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 3rem;">
+    <div class="container">
+
+      <!-- QUICK CONTACT CHANNELS -->
+      <div class="contact-channels">
+        <a href="tel:+10000000000" class="channel-card primary reveal">
+          <span class="channel-icon">📞</span>
+          <div class="channel-label">Call Us</div>
+          <div class="channel-value">(000) 000-0000</div>
+          <div class="channel-value" style="margin-top:0.5rem; font-size:0.78rem;">Mon–Sat 7am–6pm</div>
+        </a>
+        <a href="https://wa.me/10000000000?text=Hi%2C%20I%27d%20like%20to%20get%20a%20quote%21" target="_blank" class="channel-card whatsapp reveal reveal-delay-1">
+          <span class="channel-icon">💬</span>
+          <div class="channel-label">WhatsApp</div>
+          <div class="channel-value">Message us directly</div>
+          <div class="channel-value" style="margin-top:0.5rem; font-size:0.78rem;">Fastest response</div>
+        </a>
+        <a href="mailto:info@sparkcleanpro.com" class="channel-card email reveal reveal-delay-2">
+          <span class="channel-icon">✉️</span>
+          <div class="channel-label">Email Us</div>
+          <div class="channel-value">info@sparkcleanpro.com</div>
+          <div class="channel-value" style="margin-top:0.5rem; font-size:0.78rem;">Reply within 4 hours</div>
+        </a>
+      </div>
+
+      <!-- MAIN CONTACT LAYOUT -->
+      <div class="contact-grid">
+
+        <!-- Info Column -->
+        <div>
+          <!-- Business Hours -->
+          <div style="margin-bottom: 2rem;">
+            <h3 style="font-family:var(--font-display); font-size:1.4rem; font-weight:800; text-transform:uppercase; color:var(--navy); margin-bottom:1.25rem;">Business Hours</h3>
+            <div>
+              <div class="hours-row"><span class="day">Monday</span><span class="time">7:00am – 6:00pm</span></div>
+              <div class="hours-row"><span class="day">Tuesday</span><span class="time">7:00am – 6:00pm</span></div>
+              <div class="hours-row"><span class="day">Wednesday</span><span class="time">7:00am – 6:00pm</span></div>
+              <div class="hours-row"><span class="day">Thursday</span><span class="time">7:00am – 6:00pm</span></div>
+              <div class="hours-row"><span class="day">Friday</span><span class="time">7:00am – 6:00pm</span></div>
+              <div class="hours-row"><span class="day">Saturday</span><span class="time">7:00am – 5:00pm</span></div>
+              <div class="hours-row"><span class="day">Sunday</span><span class="time">8:00am – 4:00pm</span></div>
+            </div>
+          </div>
+
+          <!-- Service Areas -->
+          <div style="margin-bottom: 2rem;">
+            <h3 style="font-family:var(--font-display); font-size:1.4rem; font-weight:800; text-transform:uppercase; color:var(--navy); margin-bottom:0.5rem;">Service Areas</h3>
+            <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:1rem;">We service the greater metro area including:</p>
+            <div class="service-area-tags">
+              <span class="area-tag">Melbourne CBD</span>
+              <span class="area-tag">Fitzroy</span>
+              <span class="area-tag">South Yarra</span>
+              <span class="area-tag">Brighton</span>
+              <span class="area-tag">St Kilda</span>
+              <span class="area-tag">Richmond</span>
+              <span class="area-tag">Hawthorn</span>
+              <span class="area-tag">Toorak</span>
+              <span class="area-tag">Geelong</span>
+              <span class="area-tag">Ballarat</span>
+              <span class="area-tag">Bendigo</span>
+              <span class="area-tag">+ More</span>
+            </div>
+            <p style="font-size:0.82rem; color:var(--text-muted); margin-top:0.75rem;">Not sure if we cover your area? Just ask — we travel up to 80km from the CBD.</p>
+          </div>
+
+          <!-- Map Placeholder -->
+          <div class="map-placeholder">
+            <span>📍</span>
+            <strong style="color:white;">Service Area Map</strong>
+            <span style="font-size:0.8rem;">Replace with Google Maps embed</span>
+          </div>
+        </div>
+
+        <!-- Form Column -->
+        <form class="form-card" id="contact-form" novalidate>
+          <h3>Send a Message</h3>
+          <p>Ask about pricing, availability, or anything else. We'll get back to you fast.</p>
+
+          <div class="alert alert-success">
+            <div><strong>✅ Message Sent!</strong><br/>Thanks for reaching out. We'll get back to you within a few hours.</div>
+          </div>
+          <div class="alert alert-error">
+            <div><strong>Something went wrong.</strong><br/>Please call us at <a href="tel:+10000000000" style="font-weight:700;">(000) 000-0000</a> instead.</div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="c-name">Your Name <span class="required">*</span></label>
+              <input type="text" id="c-name" class="form-control" placeholder="Full name" required />
+            </div>
+            <div class="form-group">
+              <label for="c-phone">Phone Number <span class="required">*</span></label>
+              <input type="tel" id="c-phone" class="form-control" placeholder="Mobile number" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="c-email">Email Address</label>
+            <input type="email" id="c-email" class="form-control" placeholder="your@email.com" />
+          </div>
+
+          <div class="form-group">
+            <label for="c-subject">What's It About?</label>
+            <select id="c-subject" class="form-control">
+              <option value="">— Select a topic —</option>
+              <option>Pricing enquiry</option>
+              <option>Availability check</option>
+              <option>Custom / large job</option>
+              <option>Feedback or complaint</option>
+              <option>Something else</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="c-message">Your Message <span class="required">*</span></label>
+            <textarea id="c-message" class="form-control" rows="5" placeholder="Tell us a bit about what you need…" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width:100%; justify-content:center;">
+            Send Message →
+          </button>
+
+          <p style="text-align:center; font-size:0.8rem; color:var(--text-muted); margin-top:1rem;">
+            Or call us directly: <a href="tel:+10000000000" style="font-weight:700; color:var(--blue);">(000) 000-0000</a>
+          </p>
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Quick Links Strip -->
+  <section style="background:var(--gray-50); padding: 3rem 0; border-top: 1px solid var(--border);">
+    <div class="container">
+      <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:1.5rem; text-align:center;">
+        <div>
+          <div style="font-size:2rem; margin-bottom:0.5rem;">📋</div>
+          <h4 style="font-family:var(--font-display); font-size:1rem; font-weight:700; text-transform:uppercase; color:var(--navy); margin-bottom:0.35rem;">View Services</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.75rem;">See all packages and pricing</p>
+          <a href="services.html" class="btn btn-secondary btn-sm">See Pricing →</a>
+        </div>
+        <div>
+          <div style="font-size:2rem; margin-bottom:0.5rem;">📅</div>
+          <h4 style="font-family:var(--font-display); font-size:1rem; font-weight:700; text-transform:uppercase; color:var(--navy); margin-bottom:0.35rem;">Book Online</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.75rem;">Book in under 2 minutes</p>
+          <a href="booking.html" class="btn btn-primary btn-sm">Book Now →</a>
+        </div>
+        <div>
+          <div style="font-size:2rem; margin-bottom:0.5rem;">⭐</div>
+          <h4 style="font-family:var(--font-display); font-size:1rem; font-weight:700; text-transform:uppercase; color:var(--navy); margin-bottom:0.35rem;">Our Work</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.75rem;">Before & after gallery</p>
+          <a href="gallery.html" class="btn btn-secondary btn-sm">View Gallery →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="logo-icon">✦</span><span class="logo-text">SparkClean<span class="logo-accent">Pro</span></span></a>
+        <p>Professional mobile cleaning. Fully insured. Eco-friendly products.</p>
+        <div class="footer-socials"><a href="#" class="social-link">f</a><a href="#" class="social-link">in</a><a href="#" class="social-link">G</a></div>
+      </div>
+      <div class="footer-links"><h5>Pages</h5><a href="index.html">Home</a><a href="services.html">Services</a><a href="gallery.html">Gallery</a><a href="booking.html">Booking</a><a href="contact.html">Contact</a></div>
+      <div class="footer-links"><h5>Services</h5><a href="services.html#cars">Car Detailing</a><a href="services.html#homes">House Washing</a><a href="services.html#roofs">Roof Cleaning</a><a href="services.html#gardens">Garden & Trim</a></div>
+      <div class="footer-contact"><h5>Contact</h5><a href="tel:+10000000000">📞 (000) 000-0000</a><a href="mailto:info@sparkcleanpro.com">✉ info@sparkcleanpro.com</a><a href="https://wa.me/10000000000" target="_blank">💬 WhatsApp Us</a></div>
+    </div>
+    <div class="footer-bottom"><div class="container"><span>© 2025 SparkClean Pro. All rights reserved.</span><span>ABN: 00 000 000 000</span></div></div>
+  </footer>
+
+  <a href="https://wa.me/10000000000" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+  </a>
+  <button class="scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

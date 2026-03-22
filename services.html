@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services & Pricing | SparkClean Pro</title>
+  <meta name="description" content="Professional car detailing, house washing, roof cleaning, and garden trimming. View all services and pricing." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    .services-nav {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .services-nav a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.5rem 1.2rem;
+      border-radius: 100px;
+      border: 1.5px solid var(--border);
+      color: var(--text-muted);
+      background: var(--white);
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+    }
+    .services-nav a:hover, .services-nav a.active {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: var(--white);
+    }
+    .service-section {
+      margin-bottom: 5rem;
+      scroll-margin-top: 6rem;
+    }
+    .service-section-header {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .service-section-icon {
+      width: 60px; height: 60px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      flex-shrink: 0;
+    }
+    .service-section-header h2 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .service-section-header p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    @media (max-width: 900px) { .packages-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .packages-grid { grid-template-columns: 1fr; } }
+    .package-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 1.75rem;
+      transition: all var(--transition);
+      position: relative;
+    }
+    .package-card:hover {
+      border-color: var(--blue);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+    }
+    .package-card.featured {
+      border-color: var(--blue);
+      box-shadow: var(--shadow-blue);
+      background: var(--blue-pale);
+    }
+    .package-card.featured::after {
+      content: 'Popular';
+      position: absolute;
+      top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--blue);
+      color: var(--white);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.9rem;
+      border-radius: 100px;
+    }
+    .package-name {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+    .package-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .package-price {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 1.25rem;
+    }
+    .package-price sub { font-size: 1rem; font-weight: 500; color: var(--text-muted); vertical-align: bottom; line-height: 2; }
+    .package-features { padding: 0; margin: 0 0 1.5rem; }
+    .package-features li {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      padding: 0.35rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .package-features li:last-child { border-bottom: none; }
+    .package-features li::before { content: '✓'; color: var(--green); font-weight: 700; font-size: 0.9rem; }
+    .add-ons-section {
+      background: var(--gray-50);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    .add-ons-section h4 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+    .add-ons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.75rem;
+    }
+    .add-on-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 1rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+    }
+    .add-on-item span { font-weight: 600; color: var(--blue); }
+    .faq-section { margin-top: 5rem; }
+    .accordion-item {
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+    }
+    .accordion-header {
+      width: 100%;
+      padding: 1.1rem 1.5rem;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--navy);
+      cursor: pointer;
+      text-align: left;
+      transition: background var(--transition);
+      font-family: var(--font-body);
+    }
+    .accordion-header:hover { background: var(--gray-50); }
+    .accordion-icon {
+      font-size: 1.2rem;
+      transition: transform var(--transition);
+      flex-shrink: 0;
+      margin-left: 1rem;
+    }
+    .accordion-item.open .accordion-icon { transform: rotate(45deg); }
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s var(--ease);
+      background: var(--gray-50);
+    }
+    .accordion-item.open .accordion-body { max-height: 400px; }
+    .accordion-body p {
+      padding: 1.1rem 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .guarantee-banner {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin: 4rem 0;
+      flex-wrap: wrap;
+    }
+    .guarantee-icon { font-size: 3rem; flex-shrink: 0; }
+    .guarantee-text { flex: 1; }
+    .guarantee-text h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .guarantee-text p { color: rgba(255,255,255,0.65); font-size: 0.95rem; line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header scrolled" id="site-header">
+    <div class="header-inner container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">SparkClean<span class="logo-accent">Pro</span></span>
+      </a>
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link active">Services</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="booking.html" class="nav-link">Booking</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:+10000000000" class="header-phone">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (000) 000-0000
+        </a>
+        <a href="booking.html" class="btn btn-primary btn-sm">Book Now</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="page-hero-tag">What We Offer</span>
+      <h1>Services &<br/>Pricing</h1>
+      <p>Transparent pricing. No surprises. Choose the package that fits your needs — or mix and match.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 3rem;">
+    <div class="container">
+
+      <!-- Services Nav -->
+      <div class="services-nav">
+        <a href="#cars" class="active">🚗 Car Detailing</a>
+        <a href="#homes">🏠 House Washing</a>
+        <a href="#roofs">🏗️ Roof Cleaning</a>
+        <a href="#gardens">🌿 Garden & Trim</a>
+      </div>
+
+      <!-- ═══════════ CARS ═══════════ -->
+      <div class="service-section" id="cars">
+        <div class="service-section-header">
+          <div class="service-section-icon" style="background: #EFF6FF;">🚗</div>
+          <div>
+            <h2>Car Detailing</h2>
+            <p>We come to your home, office or workplace. Fully equipped van — no water or power needed from you.</p>
+          </div>
+        </div>
+        <div class="packages-grid">
+          <div class="package-card reveal">
+            <div class="package-name">Express</div>
+            <div class="package-desc">Quick refresh — great for regular maintenance</div>
+            <div class="package-price">From $69 <sub>per car</sub></div>
+            <ul class="package-features">
+              <li>Exterior hand wash & dry</li>
+              <li>Windows cleaned inside & out</li>
+              <li>Interior vacuum</li>
+              <li>Dashboard & console wipe</li>
+              <li>Tyre & rim clean</li>
+            </ul>
+            <a href="booking.html" class="btn btn-secondary" style="width:100%; justify-content:center;">Book Express</a>
+          </div>
+          <div class="package-card featured reveal reveal-delay-1">
+            <div class="package-name">Full Detail</div>
+            <div class="package-desc">Top to bottom — our most popular service</div>
+            <div class="package-price">From $149 <sub>per car</sub></div>
+            <ul class="package-features">
+              <li>Everything in Express</li>
+              <li>Full interior shampoo</li>
+              <li>Leather clean & condition</li>
+              <li>Engine bay degrease</li>
+              <li>Clay bar paint prep</li>
+              <li>Spray wax & seal</li>
+            </ul>
+            <a href="booking.html" class="btn btn-primary" style="width:100%; justify-content:center;">Book Full Detail</a>
+          </div>
+          <div class="package-card reveal reveal-delay-2">
+            <div class="package-name">Premium</div>
+            <div class="package-desc">Showroom finish with paint correction</div>
+            <div class="package-price">From $299 <sub>per car</sub></div>
+            <ul class="package-features">
+              <li>Everything in Full Detail</li>
+              <li>Machine polish / paint correction</li>
+              <li>Ceramic coating applied</li>
+              <li>Headlight restoration</li>
+              <li>Odour elimination treatment</li>
+              <li>3-month protection guarantee</li>
+            </ul>
+            <a href="booking.html" class="btn btn-secondary" style="width:100%; justify-content:center;">Book Premium</a>
+          </div>
+        </div>
+        <div class="add-ons-section">
+          <h4>Add-Ons</h4>
+          <div class="add-ons-grid">
+            <div class="add-on-item">Pet hair removal <span>+$25</span></div>
+            <div class="add-on-item">Stain treatment <span>+$20</span></div>
+            <div class="add-on-item">Roof lining clean <span>+$30</span></div>
+            <div class="add-on-item">4WD / SUV surcharge <span>+$20</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════ HOMES ═══════════ -->
+      <div class="service-section" id="homes">
+        <div class="service-section-header">
+          <div class="service-section-icon" style="background: #CCFBF1;">🏠</div>
+          <div>
+            <h2>House Washing</h2>
+            <p>High-pressure and soft wash options for every surface. Safe on renders, weatherboards, and brick.</p>
+          </div>
+        </div>
+        <div class="packages-grid">
+          <div class="package-card reveal">
+            <div class="package-name">Driveway Clean</div>
+            <div class="package-desc">Driveway and path pressure clean</div>
+            <div class="package-price">From $99 <sub>per job</sub></div>
+            <ul class="package-features">
+              <li>High-pressure wash</li>
+              <li>Oil stain pre-treatment</li>
+              <li>Up to 80m² included</li>
+              <li>Edges & gutters cleared</li>
+            </ul>
+            <a href="booking.html" class="btn btn-secondary" style="width:100%; justify-content:center;">Book Now</a>
+          </div>
+          <div class="package-card featured reveal reveal-delay-1">
+            <div class="package-name">Full House</div>
+            <div class="package-desc">Complete exterior property wash</div>
+            <div class="package-price">From $249 <sub>per job</sub></div>
+            <ul class="package-features">
+              <li>Exterior walls full wash</li>
+              <li>Eaves & fascia</li>
+              <li>Driveway & paths</li>
+              <li>Windows exterior</li>
+              <li>Fences & retaining walls</li>
+            </ul>
+            <a href="booking.html" class="btn btn-primary" style="width:100%; justify-content:center;">Book Full House</a>
+          </div>
+          <div class="package-card reveal reveal-delay-2">
+            <div class="package-name">Property Makeover</div>
+            <div class="package-desc">Full wash + gutters + solar panel clean</div>
+            <div class="package-price">From $399 <sub>per job</sub></div>
+            <ul class="package-features">
+              <li>Everything in Full House</li>
+              <li>Gutter flush & clear</li>
+              <li>Solar panel clean</li>
+              <li>Patio / pergola wash</li>
+              <li>Post-clean inspection</li>
+            </ul>
+            <a href="booking.html" class="btn btn-secondary" style="width:100%; justify-content:center;">Book Makeover</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════ ROOFS ═══════════ -->
+      <div class="service-section" id="roofs">
+        <div class="service-section-header">
+          <div class="service-section-icon" style="background: #FFEDD5;">🏗️</div>
+          <div>
+            <h2>Roof Cleaning</h2>
+            <p>Soft-wash technique removes moss, lichen and algae without damaging tiles or membranes.</p>
+          </div>
+        </div>
+        <div class="packages-grid">
+          <div class="package-card reveal">
+            <div class="package-name">Moss Treatment</div>
+            <div class="package-desc">Chemical treatment — kills moss at the root</div>
+            <div class="package-price">From $199 <sub>per job</sub></div>
+            <ul class="package-features">
+              <li>Biocide moss killer applied</li>
+              <li>3-month kill-off period</li>
+              <li>Safe for all roof types</li>
+              <li>No pressure — no risk of damage</li>
+            </ul>
+            <a href="booking.html" class="btn btn-secondary" style="width:100%; justify-content:center;">Book Now</a>
+          </div>
+          <div class="package-card featured reveal reveal-delay-1">
+            <div class="package-name">Full Roof Clean</div>
+            <div class="package-desc">Soft wash + gutters — the complete package</div>
+            <div class="package-price">From $349 <sub>per job</sub></div>
+            <ul class="package-features">
+              <li>Moss & lichen soft wash</li>
+              <li>Ridge capping inspect & clean</li>
+              <li>Full gutter clear & flush</li>
+              <li>Valley & flashing clean</li>
+              <li>Before & after photos</li>
+            </ul>
+            <a href="booking.html" class="btn btn-primary" style="width:100%; justify-content:center;">Book Roof Clean</a>
+          </div>
+          <div class="package-card reveal reveal-delay-2">
+            <div class="package-name">Roof Restore</div>
+            <div class="package-desc">Clean + repaint + reseal — adds years of life</div>
+            <div class="package-price">POA</div>
+            <ul class="package-features">
+              <li>Everything in Full Clean</li>
+              <li>Ridge repointing (if needed)</li>
+              <li>Roof paint / seal coat</li>
+              <li>Written condition report</li>
+              <li>5-year warranty</li>
+            </ul>
+            <a href="contact.html" class="btn btn-secondary" style="width:100%; justify-content:center;">Get Quote</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════ GARDENS ═══════════ -->
+      <div class="service-section" id="gardens">
+        <div class="service-section-header">
+          <div class="service-section-icon" style="background: #DCFCE7;">🌿</div>
+          <div>
+            <h2>Garden & Trim</h2>
+            <p>From quick tidy-ups to seasonal overhauls — we make your outdoor spaces shine.</p>
+          </div>
+        </div>
+        <div class="packages-grid">
+          <div class="package-card reveal">
+            <div class="package-name">Garden Tidy</div>
+            <div class="package-desc">Quick 1–2 hour tidy-up service</div>
+            <div class="package-price">From $89 <sub>per visit</sub></div>
+            <ul class="package-features">
+              <li>Lawn edging</li>
+              <li>Garden bed weed</li>
+              <li>Hedge trim (up to 20m)</li>
+              <li>Green waste bagged</li>
+            </ul>
+            <a href="booking.html" class="btn btn-secondary" style="width:100%; justify-content:center;">Book Now</a>
+          </div>
+          <div class="package-card featured reveal reveal-delay-1">
+            <div class="package-name">Full Garden</div>
+            <div class="package-desc">Complete front & back garden service</div>
+            <div class="package-price">From $189 <sub>per visit</sub></div>
+            <ul class="package-features">
+              <li>Lawn mow & edge</li>
+              <li>All garden beds weeded</li>
+              <li>Full hedge & shrub trim</li>
+              <li>Rubbish removal included</li>
+              <li>Sweep paths & driveway</li>
+            </ul>
+            <a href="booking.html" class="btn btn-primary" style="width:100%; justify-content:center;">Book Full Garden</a>
+          </div>
+          <div class="package-card reveal reveal-delay-2">
+            <div class="package-name">Seasonal Overhaul</div>
+            <div class="package-desc">Spring / autumn deep clean-up</div>
+            <div class="package-price">From $349 <sub>per job</sub></div>
+            <ul class="package-features">
+              <li>Everything in Full Garden</li>
+              <li>Tree pruning up to 3m</li>
+              <li>Fertiliser application</li>
+              <li>Mulch laid (excl. material)</li>
+              <li>Full rubbish truck removal</li>
+            </ul>
+            <a href="booking.html" class="btn btn-secondary" style="width:100%; justify-content:center;">Book Overhaul</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- GUARANTEE BANNER -->
+      <div class="guarantee-banner reveal">
+        <div class="guarantee-icon">💯</div>
+        <div class="guarantee-text">
+          <h3>100% Satisfaction Guarantee</h3>
+          <p>If you're not completely happy with the result, we'll come back and fix it — at no extra cost. No questions asked. That's our promise on every single job.</p>
+        </div>
+        <a href="booking.html" class="btn btn-white btn-lg">Book With Confidence →</a>
+      </div>
+
+      <!-- FAQ -->
+      <div class="faq-section">
+        <div class="section-header">
+          <span class="section-tag">Common Questions</span>
+          <h2 class="section-title">Before You Book</h2>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">Do I need to be home during the clean? <span class="accordion-icon">+</span></button>
+          <div class="accordion-body"><p>Not necessarily. For outdoor jobs like house washing, roof cleaning, and gardening, you don't need to be present. For car detailing and indoor access, we'll coordinate a key handover or work around your schedule.</p></div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">Do you bring your own water and equipment? <span class="accordion-icon">+</span></button>
+          <div class="accordion-body"><p>Yes — our van carries a 1,000L water tank and all professional-grade equipment. You don't need to provide access to your outdoor tap unless specified for very large jobs.</p></div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">Are your products safe for pets and kids? <span class="accordion-icon">+</span></button>
+          <div class="accordion-body"><p>Absolutely. We use biodegradable, pH-neutral cleaning solutions that are safe for children, pets, plants, and waterways. We can also supply full product safety data sheets on request.</p></div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">How do I pay? <span class="accordion-icon">+</span></button>
+          <div class="accordion-body"><p>Payment is due on completion of the job. We accept cash, bank transfer, and card payments via our mobile EFTPOS terminal. A tax invoice is provided for every job.</p></div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">What if it rains on the day? <span class="accordion-icon">+</span></button>
+          <div class="accordion-body"><p>Light rain usually doesn't affect outdoor jobs — sometimes it helps! For car detailing, heavy rain may require rescheduling to ensure a quality result. We'll contact you the day before if weather is a concern.</p></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-strip">
+    <div class="container cta-strip-inner">
+      <div>
+        <h2>Found Your Service?</h2>
+        <p>Book online in under 2 minutes. We'll confirm within the hour.</p>
+      </div>
+      <div class="cta-strip-actions">
+        <a href="booking.html" class="btn btn-white btn-lg">Book Now →</a>
+        <a href="contact.html" class="btn btn-outline-white btn-lg">Get a Custom Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="logo-icon">✦</span><span class="logo-text">SparkClean<span class="logo-accent">Pro</span></span></a>
+        <p>Professional mobile cleaning. Fully insured. Eco-friendly products.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link">f</a>
+          <a href="#" class="social-link">in</a>
+          <a href="#" class="social-link">G</a>
+        </div>
+      </div>
+      <div class="footer-links"><h5>Pages</h5><a href="index.html">Home</a><a href="services.html">Services</a><a href="gallery.html">Gallery</a><a href="booking.html">Booking</a><a href="contact.html">Contact</a></div>
+      <div class="footer-links"><h5>Services</h5><a href="#cars">Car Detailing</a><a href="#homes">House Washing</a><a href="#roofs">Roof Cleaning</a><a href="#gardens">Garden & Trim</a></div>
+      <div class="footer-contact"><h5>Contact</h5><a href="tel:+10000000000">📞 (000) 000-0000</a><a href="mailto:info@sparkcleanpro.com">✉ info@sparkcleanpro.com</a><a href="https://wa.me/10000000000" target="_blank">💬 WhatsApp Us</a></div>
+    </div>
+    <div class="footer-bottom"><div class="container"><span>© 2025 SparkClean Pro. All rights reserved.</span><span>ABN: 00 000 000 000</span></div></div>
+  </footer>
+
+  <a href="https://wa.me/10000000000?text=Hi%2C%20I%27d%20like%20a%20quote%21" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+  </a>
+  <button class="scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

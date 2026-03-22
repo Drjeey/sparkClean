@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Clean | SparkClean Pro</title>
+  <meta name="description" content="Book your cleaning service online. Cars, homes, roofs, and gardens. Fast confirmation, flexible scheduling." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+
+  <header class="site-header scrolled" id="site-header">
+    <div class="header-inner container">
+      <a href="index.html" class="logo"><span class="logo-icon">✦</span><span class="logo-text">SparkClean<span class="logo-accent">Pro</span></span></a>
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="booking.html" class="nav-link active">Booking</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:+10000000000" class="header-phone">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (000) 000-0000
+        </a>
+        <a href="booking.html" class="btn btn-primary btn-sm">Book Now</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="page-hero-tag">Online Booking</span>
+      <h1>Book Your<br/>Clean</h1>
+      <p>Fill in the form below and we'll confirm your booking within the hour. No payment needed upfront.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 3rem;">
+    <div class="container">
+      <div class="booking-layout">
+
+        <!-- ─── FORM ─── -->
+        <div>
+          <form class="form-card" id="booking-form" novalidate>
+            <h3>Request a Booking</h3>
+            <p>We'll call you back to confirm the time that works best.</p>
+
+            <div class="alert alert-success" id="booking-success">
+              <div>
+                <strong>✅ Booking Request Received!</strong><br/>
+                Thanks — we'll call you within the hour to confirm your booking. Check your phone!
+              </div>
+            </div>
+            <div class="alert alert-error" id="booking-error">
+              <div>
+                <strong>Something went wrong.</strong><br/>
+                Please try again, or call us directly at <a href="tel:+10000000000" style="font-weight:700;">(000) 000-0000</a>.
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="b-name">Full Name <span class="required">*</span></label>
+                <input type="text" id="b-name" class="form-control" placeholder="Your full name" autocomplete="name" />
+                <span class="form-error">Please enter your full name.</span>
+              </div>
+              <div class="form-group">
+                <label for="b-phone">Phone Number <span class="required">*</span></label>
+                <input type="tel" id="b-phone" class="form-control" placeholder="Your mobile number" autocomplete="tel" />
+                <span class="form-error">Please enter a valid phone number.</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="b-service">Service Required <span class="required">*</span></label>
+              <select id="b-service" class="form-control">
+                <option value="">— Select a service —</option>
+                <optgroup label="🚗 Car Detailing">
+                  <option value="car-express">Car Express Wash (from $69)</option>
+                  <option value="car-full">Car Full Detail (from $149)</option>
+                  <option value="car-premium">Car Premium Package (from $299)</option>
+                </optgroup>
+                <optgroup label="🏠 House Washing">
+                  <option value="house-driveway">Driveway Clean (from $99)</option>
+                  <option value="house-full">Full House Wash (from $249)</option>
+                  <option value="house-makeover">Property Makeover (from $399)</option>
+                </optgroup>
+                <optgroup label="🏗️ Roof Cleaning">
+                  <option value="roof-moss">Moss Treatment (from $199)</option>
+                  <option value="roof-full">Full Roof Clean (from $349)</option>
+                  <option value="roof-restore">Roof Restore (POA)</option>
+                </optgroup>
+                <optgroup label="🌿 Garden & Trim">
+                  <option value="garden-tidy">Garden Tidy (from $89)</option>
+                  <option value="garden-full">Full Garden Service (from $189)</option>
+                  <option value="garden-seasonal">Seasonal Overhaul (from $349)</option>
+                </optgroup>
+              </select>
+              <span class="form-error">Please select a service.</span>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="b-location">Your Suburb / Address <span class="required">*</span></label>
+                <input type="text" id="b-location" class="form-control" placeholder="e.g. Fitzroy, VIC 3065" autocomplete="address-level2" />
+                <span class="form-error">Please enter your suburb or address.</span>
+              </div>
+              <div class="form-group">
+                <label for="b-date">Preferred Date <span class="required">*</span></label>
+                <input type="date" id="b-date" class="form-control" />
+                <span class="form-error">Please select a date.</span>
+                <span class="form-hint">We'll confirm availability when we call.</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="b-notes">Notes / Special Instructions</label>
+              <textarea id="b-notes" class="form-control" rows="3" placeholder="e.g. gate code, parking instructions, specific areas to focus on…"></textarea>
+            </div>
+
+            <div style="font-size:0.82rem; color:var(--text-muted); margin-bottom:1.25rem; line-height:1.6; padding:1rem; background:var(--gray-50); border-radius:var(--radius-sm); border:1px solid var(--border);">
+              🔒 <strong>Your details are secure.</strong> We'll only use your information to confirm and manage your booking. No spam, ever.
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width:100%; justify-content:center;">
+              Request Booking →
+            </button>
+          </form>
+        </div>
+
+        <!-- ─── SIDEBAR ─── -->
+        <div class="booking-sidebar">
+          <div class="sidebar-card">
+            <h4>What Happens Next?</h4>
+            <div class="sidebar-feature"><span>📞</span> We call you within the hour to confirm</div>
+            <div class="sidebar-feature"><span>📅</span> We lock in a time that suits you</div>
+            <div class="sidebar-feature"><span>🚐</span> Our team arrives fully equipped</div>
+            <div class="sidebar-feature"><span>✅</span> You inspect — pay only when satisfied</div>
+          </div>
+
+          <div class="sidebar-card" style="background: var(--navy-mid);">
+            <h4>Why Book With Us</h4>
+            <div class="sidebar-feature"><span>🛡️</span> Fully insured — public liability covered</div>
+            <div class="sidebar-feature"><span>🌿</span> Eco-friendly, pet-safe products</div>
+            <div class="sidebar-feature"><span>💯</span> Satisfaction guarantee on every job</div>
+            <div class="sidebar-feature"><span>⚡</span> Same-day bookings often available</div>
+          </div>
+
+          <div style="background: var(--blue-pale); border: 1.5px solid rgba(26,86,219,0.2); border-radius: var(--radius-xl); padding: 1.5rem; text-align:center;">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">💬</div>
+            <p style="font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 0.35rem;">Prefer to chat first?</p>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem;">Message us on WhatsApp for an instant quote.</p>
+            <a href="https://wa.me/10000000000?text=Hi%2C%20I%27d%20like%20a%20quote%21" target="_blank" class="btn btn-primary" style="width:100%; justify-content:center;">
+              Open WhatsApp →
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="logo-icon">✦</span><span class="logo-text">SparkClean<span class="logo-accent">Pro</span></span></a>
+        <p>Professional mobile cleaning. Fully insured. Eco-friendly products.</p>
+        <div class="footer-socials"><a href="#" class="social-link">f</a><a href="#" class="social-link">in</a><a href="#" class="social-link">G</a></div>
+      </div>
+      <div class="footer-links"><h5>Pages</h5><a href="index.html">Home</a><a href="services.html">Services</a><a href="gallery.html">Gallery</a><a href="booking.html">Booking</a><a href="contact.html">Contact</a></div>
+      <div class="footer-links"><h5>Services</h5><a href="services.html#cars">Car Detailing</a><a href="services.html#homes">House Washing</a><a href="services.html#roofs">Roof Cleaning</a><a href="services.html#gardens">Garden & Trim</a></div>
+      <div class="footer-contact"><h5>Contact</h5><a href="tel:+10000000000">📞 (000) 000-0000</a><a href="mailto:info@sparkcleanpro.com">✉ info@sparkcleanpro.com</a><a href="https://wa.me/10000000000" target="_blank">💬 WhatsApp Us</a></div>
+    </div>
+    <div class="footer-bottom"><div class="container"><span>© 2025 SparkClean Pro. All rights reserved.</span><span>ABN: 00 000 000 000</span></div></div>
+  </footer>
+
+  <a href="https://wa.me/10000000000?text=Hi%2C%20I%27d%20like%20a%20quote%21" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+  </a>
+  <button class="scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
